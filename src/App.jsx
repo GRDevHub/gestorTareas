@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Tareas from "./Components/Tareas";
+import Formulario from "./Components/Formulario";
 
 const tareasIniciales = [
   {
@@ -12,14 +13,14 @@ const tareasIniciales = [
   {
     id: 2,
     title: 'Tarea #2',
-    description: 'Descripcion #1',
+    description: 'Descripcion #2',
     state: true,
     priority: false,
   },
   {
     id: 3,
     title: 'Tarea #3',
-    description: 'Descripcion #1',
+    description: 'Descripcion #3',
     state: false,
     priority: true,
   },
@@ -30,14 +31,10 @@ const [tareasArray, setTareasArray] = useState(tareasIniciales);
   return (
     <div className="container my-1">
       <h2 className="text-primary mb-3">Formulario</h2>
-      {/* Formulario */}
-      <h2>...</h2>
-      {/* Titulo de la tarea */}
-
-      {/* tareas */}
-      <Tareas tareas={tareasArray} />
+      <Formulario />
+      <Tareas tareasArray={tareasArray} />
     </div>
   )
 }
 
-export default App
+export default App;

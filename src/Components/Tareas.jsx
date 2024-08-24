@@ -1,26 +1,24 @@
-const Tareas = ({tareas}) => {
+import CardTareas from "./CardTareas";
+import PropTypes from 'prop-types'
+
+const Tareas = ({tareasArray}) => {
     return (
         <div className='my-5'>
             <h2 className='text-primary text-center mb-2'>Tareas</h2>
             {/* [{3}].map() */}
             
             <ul>
-                { tareas.map( item => (
-                    <li key={item} className='list-group-item d-flex justify-content-between align-items-start mt-2 border p-2'> 
-                        <div className="ms-2 me-auto">
-                            <div className="fw-bold">titulo</div>
-                            <p>description</p>
-                            <div>
-                                <button className="btn btn-sm btn-danger me-1">Eliminar</button>
-                                <button className="btn btn-sm btn-warning me-1">Editar</button>
-                            </div>
-                        </div>
-                    </li>
+                { tareasArray.map( item => (
+                    <CardTareas key={item.id} item={item} />
                 ))}
             </ul>
             
         </div>
     )
+}
+
+Tareas.propTypes = {
+    tareasArray: PropTypes.object.isRequired,
 }
 
 export default Tareas;
