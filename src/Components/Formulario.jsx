@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from 'sweetalert2';
 
-const Formulario = () => {
+const Formulario = ({agregarTarea}) => {
     const [tarea, setTarea] = useState({
         title: '',
         description: '',
@@ -33,6 +33,18 @@ const Formulario = () => {
             });
             return;
         }
+        //Crear Tarea 
+        const nueva_tarea = {
+            id: Date.now(),
+            title: title,
+            description: description,
+            state: state === 'completado',
+            priority: priority
+        }
+        console.log(nueva_tarea)
+
+        // Llamar a agregarTarea
+        agregarTarea(nueva_tarea);
 
         Swal.fire({
             position: "top-end",

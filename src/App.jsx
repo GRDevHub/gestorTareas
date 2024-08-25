@@ -28,10 +28,15 @@ const tareasIniciales = [
 function App() {
 const [tareasArray, setTareasArray] = useState(tareasIniciales);
 
+const agregarTarea = nueva_tarea => {
+  setTareasArray([...tareasArray, nueva_tarea]);
+
+}
+
   return (
     <div className="container my-1">
       <h2 className="text-primary mb-3">Formulario</h2>
-      <Formulario />
+      <Formulario agregarTarea={agregarTarea} />
       <Tareas tareasArray={tareasArray} />
     </div>
   )
