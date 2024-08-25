@@ -34,22 +34,33 @@ const agregarTarea = nueva_tarea => {
 }
 
 const eliminarTarea = (id) => {
-  let tareas = tareasArray.filter( item => item.id !== id);
+  const tareas = tareasArray.filter( item => item.id !== id);
   setTareasArray(tareas);
   Swal.fire({
     position: "center",
     icon: "success",
-    title: "La tarea se elimino correctamente",
+    title: "La tarea se elimino correctamente!",
     showConfirmButton: false,
     timer: 1800
-});
+  });
+}
+
+const updateTarea = (id) => {
+  const tareaCambio = tareasArray.map( item => {
+    if(item.id === id){
+      item.state = !item.state;
+    }
+    return item;
+  })
+
+  setTareasArray(tareaCambio);
 }
 
   return (
     <div className="container my-1">
       <h2 className="text-primary mb-3">Formulario</h2>
-      <Formulario agregarTarea={agregarTarea} />
-      <Tareas tareasArray={tareasArray} eliminar={ eliminarTarea }/>
+      <Formulario agregarTarea={ agregarTarea } />
+      <Tareas tareasArray={tareasArray} eliminar={ eliminarTarea } actualizar={ updateTarea } />
     </div>
   )
 }

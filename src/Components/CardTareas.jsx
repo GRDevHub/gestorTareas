@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-const CardTareas = ( {item, id, eliminar} ) => {
-    const {title, description, state, priority} = item;
+const CardTareas = ( { item, eliminar, actualizar } ) => {
+    const {title, description, state, priority, id} = item;
 
     return (
         <li className='list-group-item d-flex justify-content-between align-items-start mt-2 border p-2'> 
@@ -13,7 +13,7 @@ const CardTareas = ( {item, id, eliminar} ) => {
                 <p>{ description }</p>
                 <div>
                     <button className="btn btn-sm btn-danger me-1" onClick={ () => eliminar(id) }>Eliminar</button>
-                    <button className="btn btn-sm btn-warning me-1">Editar</button>
+                    <button className="btn btn-sm btn-warning me-1" onClick={ () => actualizar(id) }>Editar</button>
                 </div>
             </div>
             { priority ? <p className="badge bg-primary rounded-pill">Prioritario</p> : <p className="badge bg-warning rounded-pill">No prioritario</p>}
@@ -23,8 +23,8 @@ const CardTareas = ( {item, id, eliminar} ) => {
 
 CardTareas.propTypes = {
     item: PropTypes.object.isRequired,
-    id: PropTypes.number.isRequired,
-    eliminar: PropTypes.func.isRequired
+    eliminar: PropTypes.func.isRequired,
+    actualizar: PropTypes.func.isRequired
 }
 
 export default CardTareas;
