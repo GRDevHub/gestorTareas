@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const CardTareas = ( {item} ) => {
+const CardTareas = ( {item, id, eliminar} ) => {
     const {title, description, state, priority} = item;
 
     return (
@@ -12,7 +12,7 @@ const CardTareas = ( {item} ) => {
                 </div>
                 <p>{ description }</p>
                 <div>
-                    <button className="btn btn-sm btn-danger me-1">Eliminar</button>
+                    <button className="btn btn-sm btn-danger me-1" onClick={ () => eliminar(id) }>Eliminar</button>
                     <button className="btn btn-sm btn-warning me-1">Editar</button>
                 </div>
             </div>
@@ -23,6 +23,8 @@ const CardTareas = ( {item} ) => {
 
 CardTareas.propTypes = {
     item: PropTypes.object.isRequired,
+    id: PropTypes.number.isRequired,
+    eliminar: PropTypes.func.isRequired
 }
 
 export default CardTareas;

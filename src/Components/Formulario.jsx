@@ -1,7 +1,8 @@
 import { useState } from "react";
+import PropTypes from 'prop-types'
 import Swal from 'sweetalert2';
 
-const Formulario = ({agregarTarea}) => {
+const Formulario = ({ agregarTarea }) => {
     const [tarea, setTarea] = useState({
         title: '',
         description: '',
@@ -29,7 +30,6 @@ const Formulario = ({agregarTarea}) => {
                 icon: "error",
                 title: "Oops...",
                 text: "Debe completar la tarea y la descripcion",
-                // footer: '<a href="#">Why do I have this issue?</a>'
             });
             return;
         }
@@ -41,15 +41,14 @@ const Formulario = ({agregarTarea}) => {
             state: state === 'completado',
             priority: priority
         }
-        console.log(nueva_tarea)
 
         // Llamar a agregarTarea
         agregarTarea(nueva_tarea);
 
         Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Nueva tarea agregada correctamente!",
             showConfirmButton: false,
             timer: 1500
         });
@@ -94,6 +93,10 @@ const Formulario = ({agregarTarea}) => {
             </form>
         </>
     )
+}
+
+Formulario.propTypes = {
+    agregarTarea: PropTypes.func.isRequired
 }
 
 export default Formulario;
