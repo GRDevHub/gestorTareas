@@ -8,8 +8,12 @@ const Tareas = ({ tareasArray, eliminar, actualizar }) => {
             {/* [{3}].map() */}
             
             <ul>
-                { tareasArray.map( item => (
-                    <CardTareas key={ item.id } id={ item.id } item={ item } eliminar={ eliminar } actualizar={ actualizar } />
+                { tareasArray.length == 0
+                    ?   <div className="text-center mt-2 border border-2 p-2">
+                            <h5 className="text text-center mb-2">No hay tareas</h5>
+                        </div>
+                    :   tareasArray.map( item => (
+                        <CardTareas key={ item.id } id={ item.id } item={ item } eliminar={ eliminar } actualizar={ actualizar } />
                 )) }
             </ul>
             
