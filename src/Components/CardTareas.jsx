@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const CardTareas = ( { item, eliminar, actualizar } ) => {
-    const {title, description, state, priority, id} = item;
+    const { title, description, state, priority, id } = item;
 
     return (
         <li className='list-group-item d-flex justify-content-between align-items-start mt-2 border p-2'> 

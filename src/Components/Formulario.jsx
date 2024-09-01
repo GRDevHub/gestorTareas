@@ -13,7 +13,7 @@ const Formulario = ({ agregarTarea }) => {
     const {title, description, state, priority} = tarea;
 
     const modificarCampo = (e) => {
-        console.log(e.target.name)
+        // console.log(e.target.name)
         if(e.target.name !== 'priority'){
             setTarea({ ...tarea, [e.target.name]: e.target.value })
         }else{
